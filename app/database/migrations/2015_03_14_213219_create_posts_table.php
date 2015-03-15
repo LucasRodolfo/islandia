@@ -16,9 +16,12 @@ class CreatePostsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->integer('user');
-			$table->integer,content('reputation')->text();
+            $table->text('content');
+			$table->integer('user')->unsigned();
+            $table->foreign('user')->references('id')->on('users');
+			$table->integer('reputation')->default(0);
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

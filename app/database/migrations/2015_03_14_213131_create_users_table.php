@@ -18,8 +18,10 @@ class CreateUsersTable extends Migration {
 			$table->string('name');
 			$table->string('email');
 			$table->string('password');
-			$table->int('category');
+			$table->integer('category')->unsigned();
+            $table->foreign('category')->references('id')->on('categories');
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 
