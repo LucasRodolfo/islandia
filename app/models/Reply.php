@@ -1,6 +1,9 @@
 <?php
 
 class Reply extends \Eloquent {
+
+	use SoftDeletingTrait;
+	
 	protected $fillable = ['post', 'user', 'content'];
     protected $table = 'replies';
 

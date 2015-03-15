@@ -4,10 +4,11 @@ use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, SoftDeletingTrait;
 
 	/**
 	 * The database table used by the model.
@@ -24,6 +25,36 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = ['password', 'remember_token'];
 
     protected $guarded = [];
+
+
+	/**
+	 * Function that finds a user by name
+	 * @param $name
+	 * @return null or user_id
+	 */
+	public static function findByName($name)
+	{
+		$user = User::where('name', '=', $name)->first();
+		if (isset($user))
+			return $user->toArray()['id'];
+
+		return NULL;
+	}
+
+	/**
+	 * Function that finds a user by email
+	 * @param $email
+	 * @return null or user_id
+	 */
+	public static function findByEmail($email)
+	{
+		$user = User::where('email', '=', $email)->first();
+		if (isset($user))
+			return $user->toArray()['id'];
+
+		return NULL;
+	}
+
 
 	public function category()
 	{
