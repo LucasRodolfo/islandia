@@ -3,56 +3,38 @@
     Profile
 @stop
 @section('body')
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#"><img class="img-circle" alt="140x140" src="http://lorempixel.com/140/140/" /></a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Link</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="row clearfix">
                 <div class="col-md-4 column">
                 </div>
-                <div class="col-md-4 column">
-                    <img alt="140x140" src="http://lorempixel.com/140/140/" />
+                <div class="col-md-4 column center">
+                    <img class="img-circle" alt="140x140" src="http://lorempixel.com/140/140/" />
                 </div>
                 <div class="col-md-4 column">
                 </div>
             </div>
             <div class="row clearfix">
-                <div class="col-md-4 column">
+                <div class="col-md-4 column center">
                     <h3>
-                        h3. Lorem ipsum dolor sit amet.
+                        Nome
                     </h3>
                 </div>
-                <div class="col-md-4 column">
+                <div class="col-md-4 column center">
                     <h3>
-                        h3. Lorem ipsum dolor sit amet.
+                        RA
                     </h3>
                 </div>
-                <div class="col-md-4 column">
+                <div class="col-md-4 column center">
                     <h3>
-                        h3. Lorem ipsum dolor sit amet.
+                        Email
                     </h3>
                 </div>
             </div>
             <div class="row clearfix">
-                <div class="col-md-12 column">
+                <div class="col-md-12 column center">
                     <h3>
-                        h3. Lorem ipsum dolor sit amet.
+                        Respostas e Comentarios
                     </h3>
                     <table class="table">
                         <thead>
@@ -148,5 +130,4 @@
             </div>
         </div>
     </div>
-</div>
 @stop
