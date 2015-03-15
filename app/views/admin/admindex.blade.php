@@ -42,7 +42,7 @@
                         {{ $reply->updated_at }}
                     </td>
                     <td>
-                        Blank
+                        {{ $reply->votes->count() }}
                     </td>
                 </tr>
                 @endforeach

@@ -14,8 +14,8 @@ Route::get('post/{id}', ['uses' => 'ByLawController@show', 'as' => 'post.show'])
 Route::get('list', ['uses' => 'ByLawController@index']);
 
 
-Route::group(['before' => 'auth'], function()
-    {
+#Route::group(['before' => 'auth'], function()
+    #{
         //TODO: Routes that require login
-    Route::get('admin', ['uses'=> 'AdminController@index'])->before('admin');
-    });
+    Route::get('admin', ['uses'=> 'AdminController@index']); #->before('admin');
+    #});
