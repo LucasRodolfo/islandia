@@ -18,8 +18,4 @@ class Post extends \Eloquent {
 		return $this->hasMany('Reply', 'post');
 	}
 
-	public function votes()
-	{
-		return $this->hasMany('Vote', 'vote');
-	}
 }

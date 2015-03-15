@@ -22,4 +22,9 @@ class Reply extends \Eloquent {
 		return $this->hasMany('Comment', 'reply');
 	}
 
+	public function votes()
+	{
+		return $this->morphMany('Vote', 'votable');
+	}
+
 }
