@@ -32,7 +32,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @param $name
 	 * @return null or user_id
 	 */
-	public static function findByName($name)
+	public static function getIdByName($name)
 	{
 		$user = User::where('name', '=', $name)->first();
 		if (isset($user))
@@ -46,7 +46,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @param $email
 	 * @return null or user_id
 	 */
-	public static function findByEmail($email)
+	public static function getIdByEmail($email)
 	{
 		$user = User::where('email', '=', $email)->first();
 		if (isset($user))
@@ -55,10 +55,57 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return NULL;
 	}
 
+	/**
+	 * Function that finds a user by name
+	 * @param $name
+	 * @return null or user_id
+	 */
+	public static function findByName($name)
+	{
+		$user = User::getIdByName($name);
+		if (isset($user))
+			return $user;
+
+		return NULL;
+	}
+
+	/**
+	 * Function that finds a user by email
+	 * @param $email
+	 * @return null or user_id
+	 */
+	public static function findByEmail($email)
+	{
+		$user = User::where('email', '=', $email)->first();
+		if (isset($user))
+			return $user;
+
+		return NULL;
+	}
 
 	public function category()
 	{
 		return $this->belongsTo('Category', 'category');
+	}
+
+	public function posts()
+	{
+		return $this->hasMany('Post', 'user');
+	}
+
+	public function replies()
+	{
+		return $this->hasMany('Reply', 'user');
+	}
+
+	public function votes()
+	{
+		return $this->hasMany('Vote', 'user');
+	}
+
+	public function comments()
+	{
+		return $this->hasMany('Comment', 'user');
 	}
 
 }
