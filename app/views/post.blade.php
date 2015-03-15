@@ -1,3 +1,8 @@
+@extends('base')
+@section('title')
+    Post
+@stop
+@section('body')
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -111,3 +116,4 @@
         </div>
     </div>
 </div>
+@stop
