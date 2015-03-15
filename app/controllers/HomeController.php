@@ -1,49 +1,71 @@
 <?php
 
+/**
+ * Class HomeController
+ */
 class HomeController extends BaseController
 {
 
-    public function showLogin()
+	/**
+	 * Function that shows the login screen
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function showLogin()
     {
-        return View::make('login');
+		//only if no user is logged in!
+		if (Auth::guest())
+		{
+			return View::make('login');
+		}
     }
 
-    public function doLogin()
+	/**
+	 * Function that logs the user in
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function doLogin()
     {
-        // validate the info, create rules for the inputs
-        $rules = array(
-            'email' => 'required|email', // make sure the email is an actual email
-            'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
-        );
+        // Input rules
+        $rules = [
+			'email' => 'required|email', // checking if it is a valid email
+            'password' => 'required|alphaNum|min:6'
+        ];
 
-// run the validation rules on the inputs from the form
+		// Validating the input
         $validator = Validator::make(Input::all(), $rules);
 
-// if the validator fails, redirect back to the form
-        if ($validator->fails()) {
+		// If failed, redirect back
+        if ($validator->fails())
+		{
             return Redirect::to('login')
-                ->withErrors($validator)// send back all errors to the login form
-                ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
-        } else {
+                ->withErrors($validator)// sending the errors
+                ->withInput(Input::except('password')); // sending the data, without password
+        }
+		else
+		{
 
-            // create our user data for the authentication
-            $userdata = array(
+            // Let's check the data against the database!
+
+			// First, we'll format it
+            $loginData = [
                 'email' => Input::get('email'),
                 'password' => Input::get('password')
-            );
+            ];
 
-            // attempt to do the login
-            if (Auth::attempt($userdata)) {
+            // Then, we'll test it
+            if (Auth::attempt($loginData))
+			{
+				//TODO: Create the landing page
+				// In case of success...
+                echo 'SUCELSO!';
 
-                // validation successful!
-                // redirect them to the secure section or whatever
-                // return Redirect::to('secure');
-                // for now we'll just echo success (even though echoing in a controller is bad)
-                echo 'SUCCESS!';
-
-            } else {
-
-                // validation not successful, send back to form
+            }
+			else
+			{
+				//Error!
+				//TODO: Log the error, send back with messages
                 return Redirect::to('login');
 
             }
@@ -51,10 +73,24 @@ class HomeController extends BaseController
         }
     }
 
-    public function doLogout()
+	/**
+	 * Function that logs a user out
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function doLogout()
     {
-        Auth::logout(); // log the user out of our application
-        return Redirect::to('login'); // redirect the user to the login screen
+		//TODO: Log this
+
+		// Check if we REALLY have a logged in user
+		if (Auth::user())
+		{
+			Auth::logout(); //
+			return Redirect::to('login'); // redirect the user to the login screen
+		}
+		else
+		{
+			return Redirect::to('home');
+		}
     }
 
 
