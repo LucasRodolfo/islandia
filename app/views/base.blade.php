@@ -2,9 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>{{ $ProjectName }} - @section('title')@stop</title>
-
-    <meta charset="utf-8">
+    <title>@yield('title')</title>
     <title>Bootstrap 3, from LayoutIt!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -24,18 +22,17 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    {{ HTML::link('bootstrap/img/apple-touch-icon-144-precomposed.png', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '144x144')) }}
-    {{ HTML::link('bootstrap/img/apple-touch-icon-114-precomposed.png', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '114x114')) }}
-    {{ HTML::link('bootstrap/img/apple-touch-icon-72-precomposed.png', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '72x72')) }}
-    {{ HTML::link('bootstrap/img/apple-touch-icon-57-precomposed.png', array('rel' => 'apple-touch-icon-precomposed')) }}
-    {{ HTML::link('bootstrap/img/favicon.png', array('rel' => 'shortcut icon')) }}
+    {{ HTML::link('bootstrap/img/apple-touch-icon-144-precomposed.png', '', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '144x144')) }}
+    {{ HTML::link('bootstrap/img/apple-touch-icon-114-precomposed.png', '', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '114x114')) }}
+    {{ HTML::link('bootstrap/img/apple-touch-icon-72-precomposed.png', '', array('rel' => 'apple-touch-icon-precomposed', 'sizes' => '72x72')) }}
+    {{ HTML::link('bootstrap/img/apple-touch-icon-57-precomposed.png', '', array('rel' => 'apple-touch-icon-precomposed')) }}
+    {{ HTML::link('bootstrap/img/favicon.png', '', array('rel' => 'shortcut icon')) }}
 
     {{ HTML::script('bootstrap/js/jquery.min.js') }}
     {{ HTML::script('bootstrap/js/bootstrap.min.js') }}
     {{ HTML::script('bootstrap/js/scripts.js') }}
 </head>
 <body>
-@section('body')
-@stop
+@yield('body')
 </body>
 </html>

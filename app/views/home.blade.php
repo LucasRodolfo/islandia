@@ -1,7 +1,9 @@
 @extends('base')
+
 @section('title')
     Home
 @stop
+
 @section('body')
 <div class="container">
     <div class="row clearfix">
