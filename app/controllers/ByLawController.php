@@ -10,7 +10,9 @@ class ByLawController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$items = Post::orderBy('title')->get();
+
+		return View::make('list')->withItems($items);
 	}
 
 	/**
@@ -46,7 +48,7 @@ class ByLawController extends \BaseController {
 	{
         $item = Post::find($id);
 
-		if (isset($item s))
+		if (isset($item))
        		return View::make('post')->with(['item' => $item]);
 		return "ERRO";
 	}

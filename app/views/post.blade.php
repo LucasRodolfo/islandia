@@ -12,7 +12,7 @@
                 <p>
                     {{$item->content}}
                 </p>
-               </div> <span class="label label-default">Label</span>
+               </div>
         </div>
     </div>
     <div class="row clearfix">
@@ -25,8 +25,8 @@
                 </p>
             </div>
             <div class="col-md-2 column">
-                <button type="button" class="btn btn-success btn-sm">Default</button>
-                <button type="button" class="btn btn-danger btn-sm">Default</button>
+                <button type="button" class="btn btn-success btn-sm">+1</button>
+                <button type="button" class="btn btn-danger btn-sm">-1</button>
             </div>
             <div class="row clearfix">
                 @foreach($reply->comments()->get() as $comment)
@@ -37,8 +37,8 @@
                         </p>
                     </div>
                     <div class="col-md-2 column">
-                        <button type="button" class="btn btn-success btn-sm">Default</button>
-                        <button type="button" class="btn btn-danger btn-sm">Default</button>
+                        <button type="button" class="btn btn-success btn-sm">+1</button>
+                        <button type="button" class="btn btn-danger btn-sm">-1</button>
                     </div>
                 </div>
                 @endforeach
