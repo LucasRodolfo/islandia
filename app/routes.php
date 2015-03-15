@@ -3,17 +3,17 @@
 /*
  * Routes for login
  */
-Route::get('login', array('uses' => 'HomeController@showLogin'));
-Route::post('login', array('uses' => 'HomeController@doLogin'));
+Route::get('login', ['uses' => 'HomeController@showLogin']);
+Route::post('login', ['uses' => 'HomeController@doLogin']);
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', ['uses'=> 'HomeController@showHome', 'as' => 'home']);
 
-Route::get('home', function()
-{
-    return View::make('home');
-});
+Route::get('logout', ['uses' => 'HomeController@doLogout']);
 
-Route::get('logout', array('uses' => 'HomeController@doLogout'));
+Route::get('post/{id}', ['uses' => 'ByLawController@show', 'as' => 'post.show']);
+
+Route::group(['before' => 'auth'], function()
+    {
+        //TODO: Routes that require login
+
+    });

@@ -6,6 +6,12 @@
 class HomeController extends BaseController
 {
 
+	public function showHome()
+	{
+		return View::make('home');
+	}
+
+
 	/**
 	 * Function that shows the login screen
 	 *
