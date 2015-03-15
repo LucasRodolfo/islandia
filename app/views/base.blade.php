@@ -33,6 +33,51 @@
     {{ HTML::script('bootstrap/js/scripts.js') }}
 </head>
 <body>
-@yield('body')
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><a class="navbar-link navbar-brand" href="#">Ir para estatuto</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (Auth::guest())
+                                <li><a class="navbar-link" href="#">Login</a></li>
+                            @else
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">User<strong class="caret"></strong></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">Action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Another action</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Something else here</a>
+                                        </li>
+                                        <li class="divider">
+                                        </li>
+                                        <li>
+                                            <a href="#">Separated link</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        @yield('body')
+    </div>
 </body>
 </html>

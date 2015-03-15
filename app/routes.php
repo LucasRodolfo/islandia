@@ -20,3 +20,23 @@ Route::get('home', function()
 {
     return View::make('home');
 });
+
+Route::get('login', function()
+{
+    return View::make('login');
+});
+
+Route::get('post', function()
+{
+    return View::make('post');
+});
+
+Route::get('profile', function()
+{
+    return View::make('profile');
+});
+
+Route::get('admin', function()
+{
+    return View::make('admin');
+});
