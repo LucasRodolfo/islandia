@@ -40,7 +40,7 @@ class HomeController extends BaseController
         if ($validator->fails())
 		{
             return Redirect::to('login')
-                ->withErrors($validator)// sending the errors
+                ->withErrors($validator) // sending the errors
                 ->withInput(Input::except('password')); // sending the data, without password
         }
 		else
