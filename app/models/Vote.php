@@ -1,7 +1,7 @@
 <?php
 
 class Vote extends \Eloquent {
-	protected $fillable = ['value'];
+	protected $fillable = ['value', 'post', 'user'];
     protected $table = 'votes';
 
 	public function user()

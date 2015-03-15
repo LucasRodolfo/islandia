@@ -1,7 +1,7 @@
 <?php
 
 class Reply extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['post', 'user', 'content'];
     protected $table = 'replies';
 
 	public function user()

@@ -1,8 +1,8 @@
 <?php
 
 class Comment extends \Eloquent {
-	protected $fillable = [];
-    protected $table = 'comment';
+	protected $fillable = ['content', 'user', 'reply'];
+    protected $table = 'comments';
 
 	public function user()
 	{

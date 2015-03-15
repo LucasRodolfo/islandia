@@ -1,7 +1,7 @@
 <?php
 
 class Post extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = ['title', 'content', 'user'];
     protected $table = 'posts';
 
 	public function user()
