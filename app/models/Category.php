@@ -2,4 +2,5 @@
 
 class Category extends \Eloquent {
 	protected $fillable = [];
+    protected $table = 'categories';
 }
