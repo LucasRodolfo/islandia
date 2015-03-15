@@ -6,6 +6,7 @@ class Post extends \Eloquent {
 
 	protected $fillable = ['title', 'content', 'user'];
     protected $table = 'posts';
+    protected $primaryKey = 'id';
 
 	public function user()
 	{
