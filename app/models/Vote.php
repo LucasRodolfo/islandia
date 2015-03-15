@@ -14,9 +14,9 @@ class Vote extends \Eloquent {
 		return $this->belongsTo('User', 'user');
 	}
 
-	public function post()
+	public function votable()
 	{
-		return $this->belongsTo('Post', 'post');
+		return $this->morphTo();
 	}
 
 }

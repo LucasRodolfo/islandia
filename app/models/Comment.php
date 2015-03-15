@@ -17,4 +17,9 @@ class Comment extends \Eloquent {
 		return $this->belongsTo('Reply', 'reply');
 	}
 
+	public function votes()
+	{
+		return $this->morphMany('Vote', 'votable');
+	}
+
 }

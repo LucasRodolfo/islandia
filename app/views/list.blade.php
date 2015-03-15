@@ -20,230 +20,31 @@
                 <thead>
                 <tr>
                     <th>
-                        #
+                        Tópico
                     </th>
                     <th>
-                        Product
+                        Autor
                     </th>
                     <th>
-                        Payment Taken
-                    </th>
-                    <th>
-                        Status
+                        Data
                     </th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach($items as $item)
                 <tr>
                     <td>
-                        1
+                        {{HTML::link("post/$item->id",$item->title)}}
                     </td>
                     <td>
-                        TB - Monthly
+                        {{$item->user()->first()->name}}
                     </td>
                     <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Default
+                        {{$item->created_at}}
                     </td>
                 </tr>
-                <tr class="active">
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="warning">
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
-                <tr class="danger">
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr class="success">
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
+                @endforeach
+
                 </tbody>
             </table>
         </div>
