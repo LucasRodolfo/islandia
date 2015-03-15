@@ -56,7 +56,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
 			'database'  => 'islandia',
-			'username'  => getenv('DB_USER'),
+        	'username'  => getenv('DB_USER'),
             'password'  => getenv('DB_PASSWORD'),
             'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
