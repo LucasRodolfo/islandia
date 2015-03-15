@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+    @if (Auth::guest())
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -40,7 +41,7 @@
         </div>
     </div>
 </div>
-
+@else
 
 <!-- OR IF LOGGED IN -->
 <div class="container">
@@ -192,4 +193,5 @@
         </div>
     </div>
 </div>
+    @endif
 @stop
