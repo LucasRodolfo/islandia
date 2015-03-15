@@ -11,12 +11,12 @@ class Vote extends \Eloquent {
 
 	public function user()
 	{
-		$this->belongsTo('User', 'user');
+		return $this->belongsTo('User', 'user');
 	}
 
 	public function post()
 	{
-		$this->belongsTo('Post', 'post');
+		return $this->belongsTo('Post', 'post');
 	}
 
 }

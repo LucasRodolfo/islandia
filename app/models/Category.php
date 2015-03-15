@@ -6,4 +6,9 @@ class Category extends \Eloquent {
 
 	protected $fillable = ['title'];
     protected $table = 'categories';
+
+	public function users()
+	{
+		return $this->hasMany('User', 'category');
+	}
 }

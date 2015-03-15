@@ -9,6 +9,16 @@ class Post extends \Eloquent {
 
 	public function user()
 	{
-		$this->belongsTo('User', 'user');
+		return $this->belongsTo('User', 'user');
+	}
+
+	public function replies()
+	{
+		return $this->hasMany('Reply', 'post');
+	}
+
+	public function votes()
+	{
+		return $this->hasMany('Vote', 'vote');
 	}
 }

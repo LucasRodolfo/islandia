@@ -9,12 +9,12 @@ class Comment extends \Eloquent {
 
 	public function user()
 	{
-		$this->belongsTo('User', 'user');
+		return $this->belongsTo('User', 'user');
 	}
 
 	public function reply()
 	{
-		$this->belongsTo('Reply', 'reply');
+		return $this->belongsTo('Reply', 'reply');
 	}
 
 }
