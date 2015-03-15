@@ -1,23 +1,97 @@
 <?php
 
-class HomeController extends BaseController {
+/**
+ * Class HomeController
+ */
+class HomeController extends BaseController
+{
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+	/**
+	 * Function that shows the login screen
+	 *
+	 * @return \Illuminate\View\View
+	 */
+	public function showLogin()
+    {
+		//only if no user is logged in!
+		if (Auth::guest())
+		{
+			return View::make('login');
+		}
+    }
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+	/**
+	 * Function that logs the user in
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function doLogin()
+    {
+        // Input rules
+        $rules = [
+			'email' => 'required|email', // checking if it is a valid email
+            'password' => 'required|alphaNum|min:6'
+        ];
+
+		// Validating the input
+        $validator = Validator::make(Input::all(), $rules);
+
+		// If failed, redirect back
+        if ($validator->fails())
+		{
+            return Redirect::to('login')
+                ->withErrors($validator) // sending the errors
+                ->withInput(Input::except('password')); // sending the data, without password
+        }
+		else
+		{
+
+            // Let's check the data against the database!
+
+			// First, we'll format it
+            $loginData = [
+                'email' => Input::get('email'),
+                'password' => Input::get('password')
+            ];
+
+            // Then, we'll test it
+            if (Auth::attempt($loginData))
+			{
+				//TODO: Create the landing page
+				// In case of success...
+                echo 'SUCELSO!';
+
+            }
+			else
+			{
+				//Error!
+				//TODO: Log the error, send back with messages
+                return Redirect::to('login');
+
+            }
+
+        }
+    }
+
+	/**
+	 * Function that logs a user out
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function doLogout()
+    {
+		//TODO: Log this
+
+		// Check if we REALLY have a logged in user
+		if (Auth::user())
+		{
+			Auth::logout(); //
+			return Redirect::to('login'); // redirect the user to the login screen
+		}
+		else
+		{
+			return Redirect::to('home');
+		}
+    }
+
 
 }

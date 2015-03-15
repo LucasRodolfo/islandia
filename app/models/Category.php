@@ -1,6 +1,14 @@
 <?php
 
 class Category extends \Eloquent {
-	protected $fillable = [];
+
+	use SoftDeletingTrait;
+
+	protected $fillable = ['title'];
     protected $table = 'categories';
+
+	public function users()
+	{
+		return $this->hasMany('User', 'category');
+	}
 }

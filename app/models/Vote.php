@@ -1,6 +1,22 @@
 <?php
 
+use Illuminate\Database\Eloquent\SoftDeletingTrait;
+
 class Vote extends \Eloquent {
-	protected $fillable = [];
+
+	use SoftDeletingTrait;
+
+	protected $fillable = ['value', 'post', 'user'];
     protected $table = 'votes';
+
+	public function user()
+	{
+		return $this->belongsTo('User', 'user');
+	}
+
+	public function post()
+	{
+		return $this->belongsTo('Post', 'post');
+	}
+
 }
