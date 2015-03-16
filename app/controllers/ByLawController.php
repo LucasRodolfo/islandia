@@ -23,7 +23,8 @@ class ByLawController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		if ((Auth::user()) && (Auth::user()->category()->first()->title = "Administradores"))
+			return View::make('posts.create');
 	}
 
 	/**

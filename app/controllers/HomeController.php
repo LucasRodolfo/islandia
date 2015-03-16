@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Input;
 
 /**
  * Class HomeController
@@ -65,13 +66,13 @@ class HomeController extends BaseController
 			{
 				//TODO: Create the landing page
 				// In case of success...
-                echo 'SUCELSO!';
-
+                return Redirect::to('list');
             }
 			else
 			{
 				//Error!
 				//TODO: Log the error, send back with messages
+				Auth::
                 return Redirect::to('login');
 
             }
@@ -91,7 +92,7 @@ class HomeController extends BaseController
 		if (Auth::user())
 		{
 			Auth::logout(); //
-			return Redirect::to('login'); // redirect the user to the login screen
+			return Redirect::route('home'); // redirect the user to the login screen
 		}
 		else
 		{

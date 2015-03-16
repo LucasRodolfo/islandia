@@ -86,7 +86,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function category()
 	{
-		return $this->belongsTo('Category', 'category');
+ 		return $this->belongsTo('Category', 'category');
 	}
 
 	public function posts()

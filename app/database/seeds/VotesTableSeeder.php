@@ -17,7 +17,7 @@ class VotesTableSeeder extends Seeder {
 		$min_comment_id = Comment::first()->toArray()['id'];
 		$max_comment_id = Comment::all()->last()->toArray()['id'];
 		
-		foreach(range(1, 100) as $index)
+		foreach(range(1, 150) as $index)
 		{
 			Vote::create([
 				'votable_type' => 'Reply',

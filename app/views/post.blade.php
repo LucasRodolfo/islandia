@@ -1,6 +1,6 @@
 @extends('base')
 @section('title')
-    Post
+    {{$item->title}}
 @stop
 @section('body')
     <div class="row clearfix">
@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="row clearfix">
+        <h2>Comentários</h2>
         @foreach($item->replies()->get() as $reply)
 
         <div class="col-md-12 column">
@@ -29,6 +30,7 @@
                 <button type="button" class="btn btn-danger btn-sm">-1</button>
             </div>
             <div class="row clearfix">
+
                 @foreach($reply->comments()->get() as $comment)
                 <div class="col-md-12 column">
                     <div class="col-md-10 column">

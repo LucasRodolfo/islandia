@@ -11,7 +11,7 @@ class PostsTableSeeder extends Seeder {
 		$min_user_id = User::first()->toArray()['id'];
 		$max_user_id = User::all()->last()->toArray()['id'];
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 30) as $index)
 		{
 			Post::create([
 				'title' => $faker->sentence(3),

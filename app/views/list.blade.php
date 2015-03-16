@@ -23,7 +23,7 @@
                         Tópico
                     </th>
                     <th>
-                        Autor
+                        Comentários
                     </th>
                     <th>
                         Data
@@ -37,7 +37,7 @@
                         {{HTML::link("post/$item->id",$item->title)}}
                     </td>
                     <td>
-                        {{$item->user()->first()->name}}
+                        {{$item->replies->count()}}
                     </td>
                     <td>
                         {{$item->created_at}}

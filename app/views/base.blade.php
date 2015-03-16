@@ -50,10 +50,10 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             @if (Auth::guest())
-                                <li><a class="navbar-link" href="#">Login</a></li>
+                                <li><a class="navbar-link" href="login">Login</a></li>
                             @else
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown">User<strong class="caret"></strong></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}<strong class="caret"></strong></a>
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a href="#">Action</a>
@@ -67,7 +67,7 @@
                                         <li class="divider">
                                         </li>
                                         <li>
-                                            <a href="#">Separated link</a>
+                                            <a href="logout">Logout</a>
                                         </li>
                                     </ul>
                                 </li>
