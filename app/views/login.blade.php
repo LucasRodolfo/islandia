@@ -25,7 +25,6 @@
                                 <div class="form-group">
                                     {{ Form::label('password', 'Senha') }}
                                     {{ Form::password('password', ['class'=> 'form-control'])}}
-
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" /> Lembre-se de mim!</label>
@@ -39,14 +38,21 @@
                                  <p>{{ $errors->first('email') }}</p>
                                  <p>{{ $errors->first('password') }}</p>
                             </div>
+                                    <label for="exampleInputPassword1">Password</label><input class="form-control" id="exampleInputPassword1" type="password" />
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
                         </div>
                         @endif
                         @if(isset($loginError))
                         <div class="panel-footer">
                             <div class="alert alert-danger alert-dismissable">
+                            {{-- SE TEM ERROS @if($erros) --}}
+                            <div class="alert alert-success alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                  <p>{{ $loginError }}</p>
                             </div>
+                            {{-- ENDIF @endif --}}
                         </div>
                         @endif
 
