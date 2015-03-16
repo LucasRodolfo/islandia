@@ -12,7 +12,7 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <table class="table">
+            <table class="table table-responsive">
                 <thead>
                 <tr>
                     <th>
@@ -27,25 +27,40 @@
                     <th>
                         Votes
                     </th>
+                    <th>
+                        Block?
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($replies as $reply)
+                @foreach($content as $c)
+                    @foreach($c as $p)
                 <tr>
                     <td>
-                        {{ $reply->user()->get()->first()->name }}
+                        {{ $p->user()->get()->first()->name }}
                     </td>
                     <td>
-                        {{ $reply->content }}
+                        {{ $p->content }}
                     </td>
                     <td>
-                        {{ $reply->updated_at }}
+                        {{ $p->updated_at }}
                     </td>
                     <td>
-                        {{ $reply->votes->count() }}
+                        {{ $p->votes->count() }}
+                    </td>
+                    <td>
+                        @if(get_class($p)=='Reply')
+                            <a href="{{ url('admin/block/reply/'.$p->id) }}">
+                                <button class="btn btn-danger btn-md">Block This</button></a>
+                        @else
+                            <a href="{{ url('admin/block/comment/'.$p->id) }}">
+                                <button class="btn btn-danger btn-md">Block This</button></a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
+                    @endforeach
+
                 </tbody>
             </table>
         </div>

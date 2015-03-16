@@ -5,6 +5,10 @@
 .center {
     text-align: center;
 }
+
+a.conpec, .conpec {
+    color: rgb(255, 134, 52);
+}
 .navbar-brand
 {
     position: absolute;
@@ -12,5 +16,22 @@
     left: 0;
     text-align: center;
     margin: auto;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.reply {
+    background-color: #bce8f1;
+    color: #000000;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.comment {
+    background-color: #eeeeee;
+    color: #000000;
+    border-radius: 4px;
 }
 

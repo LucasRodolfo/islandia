@@ -37,18 +37,36 @@
                         <p class="text-muted">
                             {{$comment->content }}
                         </p>
+                        <div class="right-align">
+                            <button type="button" class="btn btn-default btn-md">Reply</button>
+                        </div>
                     </div>
                     <div class="col-md-2 column">
                         <button type="button" class="btn btn-success btn-sm">+1</button>
                         <button type="button" class="btn btn-danger btn-sm">-1</button>
                     </div>
                 </div>
+                @foreach($reply->comments()->get() as $comment)
+                    <div class="row clearfix">
+                        <div class="col-md-12 column">
+                            <div class="col-md-10 column comment">
+                                <p class="text-muted">
+                                    {{$comment->content }}
+                                </p>
+                            </div>
+                            <div class="col-md-2 column">
+                                <button type="button" class="btn btn-success btn-sm">+1</button>
+                                <button type="button" class="btn btn-danger btn-sm">-1</button>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-            </div>
 
+
+            </div>
         </div>
-        @endforeach
-    </div>
+    @endforeach
+
     <div class="row clearfix">
         <div class="col-md-12 column">
             <ul class="pagination">
@@ -76,4 +94,4 @@
             </ul>
         </div>
     </div>
-@stop
+    @stop

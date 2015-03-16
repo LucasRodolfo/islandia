@@ -61,8 +61,7 @@
                                         <li class="divider">
                                         </li>
                                         <li>
-                                            <a href="logout">Logout</a>
-                                            {{ HTML::link('logout', 'Logout', array()) }}
+                                            <a href='{{ url('logout') }}'>Logout <strong class="glyphicon glyphicon-off"></strong></a>
                                         </li>
                                     </ul>
                                 </li>
@@ -73,6 +72,11 @@
             </div>
         </div>
         @yield('body')
+        <div class="row clearfix center">
+            <div class="col-md-12 column">
+                <h6 class="text-muted">With <strong class="glyphicon glyphicon-heart conpec"></strong> by <a class="navbar-link conpec" href="http://www.conpec.com.br">Conpec</a></h6>
+            </div>
+        </div>
     </div>
 </body>
 </html>
