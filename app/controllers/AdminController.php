@@ -11,7 +11,9 @@ class AdminController extends \BaseController {
 	public function index()
 	{
         $replies = Reply::orderBy('updated_at')->get();
-		return View::make('admin.admindex')->with(['replies' => $replies]);
+        $comments = Comment::orderBy('updated_at')->get();
+        $content = [$replies, $comments];
+		return View::make('admin.admindex')->with(['content' => $content]);
 	}
 
 	/**
@@ -83,5 +85,15 @@ class AdminController extends \BaseController {
 	{
 		//
 	}
+
+    public function blockReply($id) {
+        Reply::findOrFail($id)->delete();
+        return Redirect::to('admin');
+    }
+
+    public function blockComment($id) {
+        Comment::findOrFail($id)->delete();
+        return Redirect::to('admin');
+    }
 
 }
