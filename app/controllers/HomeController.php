@@ -72,7 +72,6 @@ class HomeController extends BaseController
 			{
 				//Error!
 				//TODO: Log the error, send back with messages
-				Auth::
                 return Redirect::to('login');
 
             }
