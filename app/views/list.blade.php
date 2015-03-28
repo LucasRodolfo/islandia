@@ -20,13 +20,10 @@
                 <thead>
                 <tr>
                     <th>
-                        Tópico
+                        Capítulo
                     </th>
                     <th>
                         Comentários
-                    </th>
-                    <th>
-                        Data
                     </th>
                 </tr>
                 </thead>
@@ -38,9 +35,6 @@
                     </td>
                     <td>
                         {{$item->replies->count()}}
-                    </td>
-                    <td>
-                        {{$item->created_at}}
                     </td>
                 </tr>
                 @endforeach
