@@ -15,7 +15,7 @@ class HomeController extends BaseController
         }
         else
         {
-            return View::make('list');
+            return Redirect::route('list');
         }
 	}
 
