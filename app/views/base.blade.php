@@ -74,7 +74,7 @@
         @yield('body')
         <div class="row clearfix center">
             <div class="col-md-12 column">
-                <h6 class="text-muted">With <strong class="glyphicon glyphicon-heart conpec"></strong> by <a class="navbar-link conpec" href="http://www.conpec.com.br">Conpec</a></h6>
+                <h6 class="text-muted">Com <strong class="glyphicon glyphicon-heart conpec"></strong> por <a class="navbar-link conpec" href="http://www.conpec.com.br">Conpec</a></h6>
             </div>
         </div>
     </div>
