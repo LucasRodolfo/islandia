@@ -22,9 +22,6 @@
                     <th>
                         Capítulo
                     </th>
-                    <th>
-                        Comentários
-                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,9 +29,6 @@
                 <tr>
                     <td>
                         {{HTML::link("post/$item->id",$item->title)}}
-                    </td>
-                    <td>
-                        {{$item->replies->count()}}
                     </td>
                 </tr>
                 @endforeach
