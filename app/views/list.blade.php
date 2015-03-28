@@ -8,9 +8,9 @@
         <div class="col-md-12 column">
             <form role="form">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Search</label><input class="form-control" id="exampleInputEmail1" type="email" />
+                    <label for="exampleInputEmail1">Buscar</label><input class="form-control" id="exampleInputEmail1" type="email" />
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Buscar</button>
             </form>
         </div>
     </div>

@@ -38,10 +38,6 @@
                                  <p>{{ $errors->first('email') }}</p>
                                  <p>{{ $errors->first('password') }}</p>
                             </div>
-                                    <label for="exampleInputPassword1">Password</label><input class="form-control" id="exampleInputPassword1" type="password" />
-                                </div>
-                                <button type="submit" class="btn btn-default">Submit</button>
-                            </form>
                         </div>
                         @endif
                         @if(isset($loginError))
@@ -55,11 +51,8 @@
                             {{-- ENDIF @endif --}}
                         </div>
                         @endif
-
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 column">
             </div>
         </div>
     </div>

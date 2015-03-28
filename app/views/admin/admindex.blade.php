@@ -6,9 +6,6 @@
     <div class="row clearfix">
         <div class="col-md-10 column">
         </div>
-        <div class="col-md-2 column">
-            <a href="#"><button type="button" class="btn btn-default">Add </button></a>
-        </div>
     </div>
     <div class="row clearfix">
         <div class="col-md-12 column">

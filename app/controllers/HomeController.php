@@ -9,7 +9,14 @@ class HomeController extends BaseController
 
 	public function showHome()
 	{
-		return View::make('home');
+        if (Auth::guest())
+        {
+            return View::make('home');
+        }
+        else
+        {
+            return View::make('list');
+        }
 	}
 
 
@@ -72,7 +79,7 @@ class HomeController extends BaseController
 			{
 				//Error!
 				//TODO: Log the error, send back with messages
-                return Redirect::to('login');
+                return Redirect::to('login')->with(['loginError' => 'Usuário ou senha inválidos']);
 
             }
 
