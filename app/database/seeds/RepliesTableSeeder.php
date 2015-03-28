@@ -15,7 +15,7 @@ class RepliesTableSeeder extends Seeder {
 		$min_post_id = Post::first()->toArray()['id'];
 		$max_post_id = Post::all()->last()->toArray()['id'];
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
 			Reply::create([
 				'post' => $faker->numberBetween($min_post_id, $max_post_id), // getting a random post

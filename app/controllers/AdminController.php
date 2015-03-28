@@ -1,62 +1,58 @@
 <?php
 
-class ByLawController extends \BaseController {
+class AdminController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /bylaw
+	 * GET /admin
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$items = Post::orderBy('title')->get();
-
-		return View::make('list')->withItems($items);
+        $replies = Reply::orderBy('updated_at')->get();
+        $comments = Comment::orderBy('updated_at')->get();
+        $content = [$replies, $comments];
+		return View::make('admin.admindex')->with(['content' => $content]);
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /bylaw/create
+	 * GET /admin/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		if ((Auth::user()) && (Auth::user()->category()->first()->title = "Administradores"))
-			return View::make('posts.create');
+
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /bylaw
+	 * POST /admin
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-	//
+		//
 	}
 
 	/**
 	 * Display the specified resource.
-	 * GET /bylaw/{id}
+	 * GET /admin/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-        $item = Post::find($id);
-
-		if (isset($item))
-       		return View::make('post')->with(['item' => $item]);
-		return "ERRO";
+		//
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /bylaw/{id}/edit
+	 * GET /admin/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -68,7 +64,7 @@ class ByLawController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /bylaw/{id}
+	 * PUT /admin/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -80,7 +76,7 @@ class ByLawController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /bylaw/{id}
+	 * DELETE /admin/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -89,5 +85,15 @@ class ByLawController extends \BaseController {
 	{
 		//
 	}
+
+    public function blockReply($id) {
+        Reply::findOrFail($id)->delete();
+        return Redirect::to('admin');
+    }
+
+    public function blockComment($id) {
+        Comment::findOrFail($id)->delete();
+        return Redirect::to('admin');
+    }
 
 }

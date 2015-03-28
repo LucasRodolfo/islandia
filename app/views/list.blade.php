@@ -20,13 +20,7 @@
                 <thead>
                 <tr>
                     <th>
-                        Tópico
-                    </th>
-                    <th>
-                        Autor
-                    </th>
-                    <th>
-                        Data
+                        Capítulo
                     </th>
                 </tr>
                 </thead>
@@ -35,12 +29,6 @@
                 <tr>
                     <td>
                         {{HTML::link("post/$item->id",$item->title)}}
-                    </td>
-                    <td>
-                        {{$item->user()->first()->name}}
-                    </td>
-                    <td>
-                        {{$item->created_at}}
                     </td>
                 </tr>
                 @endforeach

@@ -17,32 +17,45 @@
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <form role="form">
+                            {{ Form::open(array('url' => 'login')) }}
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label><input class="form-control" id="exampleInputEmail1" type="email" />
+                                    {{ Form::label('email', 'Email') }}
+                                    {{ Form::text('email', Input::old('email'), ['class'=> 'form-control'])}}
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label><input class="form-control" id="exampleInputPassword1" type="password" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">File input</label><input id="exampleInputFile" type="file" />
-                                    <p class="help-block">
-                                        Example block-level help text here.
-                                    </p>
+                                    {{ Form::label('password', 'Senha') }}
+                                    {{ Form::password('password', ['class'=> 'form-control'])}}
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" /> Check me out</label>
-                                </div> <button type="submit" class="btn btn-default">Submit</button>
+                                    <label><input type="checkbox" /> Lembre-se de mim!</label>
+                                </div> <button type="submit" class="btn btn-default">Login</button>
+                            {{ Form::close() }}
+                        </div>
+                        @if($errors->any())
+                        <div class="panel-footer">
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                 <p>{{ $errors->first('email') }}</p>
+                                 <p>{{ $errors->first('password') }}</p>
+                            </div>
+                                    <label for="exampleInputPassword1">Password</label><input class="form-control" id="exampleInputPassword1" type="password" />
+                                </div>
+                                <button type="submit" class="btn btn-default">Submit</button>
                             </form>
                         </div>
+                        @endif
+                        @if(isset($loginError))
                         <div class="panel-footer">
+                            <div class="alert alert-danger alert-dismissable">
+                            {{-- SE TEM ERROS @if($erros) --}}
                             <div class="alert alert-success alert-dismissable">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                <h4>
-                                    Alert!
-                                </h4> <strong>Warning!</strong> Best check yo self, you're not looking too good. <a href="#" class="alert-link">alert link</a>
+                                 <p>{{ $loginError }}</p>
                             </div>
+                            {{-- ENDIF @endif --}}
                         </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
