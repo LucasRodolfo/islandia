@@ -33,23 +33,6 @@
                         <button type="button" class="btn btn-danger btn-sm">-1</button>
                     </div>
                 </div>
-                @foreach($reply->comments()->get() as $comment)
-                    <div class="row clearfix">
-                        <div class="col-md-12 column">
-                            <div class="col-md-10 column comment">
-                                <p class="text-muted">
-                                    {{$comment->content }}
-                                </p>
-                            </div>
-                            <div class="col-md-2 column">
-                                <button type="button" class="btn btn-success btn-sm">+1</button>
-                                <button type="button" class="btn btn-danger btn-sm">-1</button>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-
             </div>
         </div>
     @endforeach
