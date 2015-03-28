@@ -15,7 +15,7 @@ Route::get('post/create', ['uses' => 'ByLawController@create']);
 Route::post('post/create', ['uses' => 'ByLawController@store']);
 
 Route::get('post/{id}', ['uses' => 'ByLawController@show', 'as' => 'post.show']);
-Route::get('list', ['uses' => 'ByLawController@index']);
+Route::get('list', ['uses' => 'ByLawController@index', 'as' => 'list']);
 
 
 Route::get('admin', ['uses'=> 'AdminController@index']); #->before('admin');
